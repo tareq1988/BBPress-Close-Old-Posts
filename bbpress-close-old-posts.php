@@ -2,7 +2,7 @@
 /*
 Plugin Name: bbPress Close Old Posts
 Plugin URI: http://tareq.wedevs.com/
-Description: Description
+Description: Close bbPress topics with no activity for X days
 Version: 1.0
 Author: Tareq Hasan
 Author URI: http://tareq.wedevs.com/
