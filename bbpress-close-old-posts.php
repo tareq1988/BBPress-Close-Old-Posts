@@ -85,7 +85,7 @@ class BBP_Close_Old_Topics {
      * Register the event
      */
     public function activate() {
-    	wp_schedule_event( time(), 'daily', 'bbpress_close_topics' );
+        wp_schedule_event( time(), 'daily', 'bbpress_close_topics' );
     }
 
     /**
@@ -94,7 +94,7 @@ class BBP_Close_Old_Topics {
      * Clear the scheduled event
      */
     public function deactivate() {
-    	wp_clear_scheduled_hook( 'bbpress_close_topics' );
+        wp_clear_scheduled_hook( 'bbpress_close_topics' );
     }
 
     /**
@@ -109,32 +109,32 @@ class BBP_Close_Old_Topics {
      *
      * @return void
      */
-	function close_old_topics() {
-		$duration = defined( 'BBP_CLOSE_TOPIC_DURATION' ) ? BBP_CLOSE_TOPIC_DURATION : 15;
-		$offset   = strtotime( '-' . $duration . ' days');
+    function close_old_topics() {
+        $duration = defined( 'BBP_CLOSE_TOPIC_DURATION' ) ? BBP_CLOSE_TOPIC_DURATION : 15;
+        $offset   = strtotime( '-' . $duration . ' days');
 
-	    // Auto close old topics
-	    $topics_query = array(
-	        'show_stickies'  => false,
-	        'parent_forum'   => 'any',
-	        'post_status'    => 'publish',
-	        'posts_per_page' => -1
-	    );
+        // Auto close old topics
+        $topics_query = array(
+            'show_stickies'  => false,
+            'parent_forum'   => 'any',
+            'post_status'    => 'publish',
+            'posts_per_page' => -1
+        );
 
-	    if ( bbp_has_topics( $topics_query ) ) {
+        if ( bbp_has_topics( $topics_query ) ) {
 
-	        while( bbp_topics() ) {
+            while( bbp_topics() ) {
 
-	            bbp_the_topic();
-	            $topic_id    = bbp_get_topic_id();
-	            $last_active = strtotime( get_post_meta( $topic_id, '_bbp_last_active_time', true ) );
+                bbp_the_topic();
+                $topic_id    = bbp_get_topic_id();
+                $last_active = strtotime( get_post_meta( $topic_id, '_bbp_last_active_time', true ) );
 
-	            if ( $last_active < $offset ) {
-	                bbp_close_topic( $topic_id );
-	            }
-	        }
-	    }
-	}
+                if ( $last_active < $offset ) {
+                    bbp_close_topic( $topic_id );
+                }
+            }
+        }
+    }
 
 } // BBP_Close_Old_Topics
 
