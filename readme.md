@@ -7,8 +7,6 @@ By default, it is **15** days. if you need to change the duration, define it fro
 define( 'BBP_CLOSE_TOPIC_DURATION', 30 ); // for 30 days
 ```
 
-Forked from [thethemefoundry/BBPress-Close-Old-Posts](https://github.com/thethemefoundry/BBPress-Close-Old-Posts)
-
 ### Changelog
 ------------
 **1.0**
@@ -18,3 +16,6 @@ Forked from [thethemefoundry/BBPress-Close-Old-Posts](https://github.com/thethem
 **0.1**
 
 * First release.
+
+### Credit
+Forked from [thethemefoundry/BBPress-Close-Old-Posts](https://github.com/thethemefoundry/BBPress-Close-Old-Posts)
